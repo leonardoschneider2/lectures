@@ -1,45 +1,50 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import movieAction from '../redux/actions/movieActions';
 
 class Sidebar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: [
-        {
-          id: 1,
-          name: 'Drama',
-          movies: [
-            { id: 1, title: '127 Hours', released: 2010, embedId: '' },
-            {
-              id: 2,
-              title: 'The Call of the Wild',
-              released: 2020,
-              embedId: '',
-            },
-            { id: 3, title: 'The Power of the Dog', released: 2021, embedId: '' },
-          ],
-        },
-        {
-          id: 2,
-          name: 'Action',
-          movies: [
-            { id: 4, title: 'Shooter', released: 2007, embedId: 'i3A0ptNnC5s' },
-          ],
-        },
-        {
-          id: 3,
-          name: 'Scyfy',
-          movies: [{ id: 5, title: 'Arrival', released: 2016, embedId: '' }],
-        },
-      ],
-    }
-  }
-
   render() {
+    const { categories, watchMovie } = this.props;
     return(
-      <div/>
+      <fieldset>
+          <legend>Player</legend>
+          {
+            categories.map((element, index) => {
+              const { name: category, movies } = element;
+              return (
+                <div key={`category-${index}`}>
+                  <h2>{category}</h2>
+                <ul>
+                  {
+                    movies.map(({title}, index) => (
+                      <div className="sidebar-movie" key={`movie-${index}`}>
+                        <li>{title}</li>
+                        <button
+                          type="button"
+                          onClick={ () => watchMovie(category, title) }
+                        >
+                          Clique
+                        </button>
+                      </div>
+                      
+                    ))
+                  }
+                </ul>
+                </div>
+              );
+            })
+          }
+        </fieldset>
     );
   }
 }
 
-export default Sidebar;
+const mapStateToProps = (store) => ({
+  categories: store.movieReducer.categories,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  watchMovie: (category, movie) => dispatch(movieAction(category, movie)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
