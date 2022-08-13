@@ -3,6 +3,7 @@ import clickReducer from '../../redux/reducers/index';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import thunk from 'redux-thunk';
+// Fetch Mock Jest && Node Fetch
 
 const createMockStore = (initialState) =>( 
   createStore(

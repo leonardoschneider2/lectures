@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './redux/store/index';
 import App from './App';
 
 // Store que foi provida pela nossa aplicação. Nos testes, precisamos prover uma nova store para podermos controlá-la
