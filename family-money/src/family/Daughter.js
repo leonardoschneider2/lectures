@@ -1,22 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import myContext from '../myContext';
 
 class Daughter extends React.Component {
   render() {
-    const { money, handle } = this.props;
     return (
       <div className="border">
         <h2>Daughter</h2>
-        <p>{`Tenho $${money},00 dólares pra gastar `}</p>
-        <button onClick={handle} type="button">IFOOD</button>
+        <myContext.Consumer>
+          {
+            value => {
+              console.log(value);
+              return (
+                <>
+                  <p>{`Tenho $${value.money},00 dólares pra gastar `}</p>
+                  <button onClick={value.handle} type="button">IFOOD</button>
+                </>
+              );
+            }
+          }
+        </myContext.Consumer>
       </div>
     );
   }
-}
-
-Daughter.propTypes = { // PropDrealing
-  handle: PropTypes.func.isRequired,
-  money: PropTypes.number.isRequired,
 }
 
 export default Daughter;
