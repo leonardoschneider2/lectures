@@ -1,3 +1,4 @@
+// Faça cinco programas, um para cada operação aritmética básica.
 const a = 10;
 const b = 20;
 
