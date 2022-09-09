@@ -1,2 +1,1 @@
-# lectures
-Trybe Lectures
+# Code Wars
