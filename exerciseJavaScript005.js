@@ -1,3 +1,5 @@
+// That is my resolution from the Anagram
+
 function anagrams(word, words) {
   const result = words.reduce((accumulator, element) => {
     const anagram = element.split('');
@@ -13,4 +15,15 @@ function anagrams(word, words) {
   return result;
 }
 
-console.log(anagrams('abba', ['abba', 'acac']));
+// That is the best logical from resolve the anagrams, but that logical is not mine
+
+const correctAnagrams = (word, words) => {
+  const ordena = (sortWord) => sortWord.split('').sort().join('');
+  return words.reduce((acc, w) => {
+    return (ordena(word) === ordena(w)) ? [...acc, w] : acc;
+  }, [])
+}
+
+
+console.log('ANAGRAM: ', anagrams('abba', ['abba', 'acac']));
+console.log('CORRECTANAGRAM: ', correctAnagrams('abba', ['abba', 'acac', 'bbaa', 'jsab']));
