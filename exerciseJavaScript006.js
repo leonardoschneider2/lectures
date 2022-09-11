@@ -55,4 +55,3 @@ const resolution2 = (needs, has) => Math.min(
   returning all values from spread operator the Math.min will choose the min value. If some time the return 
   was 0, will return 0, else will return the minimal value of comparetion recipe and available
 */
-
