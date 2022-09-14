@@ -7,6 +7,7 @@ function alphanumeric(string){
     && !aZ09
   )
 }
+
 console.log(alphanumeric("Mazinkaiser"));
 console.log(alphanumeric("hello world_"));
 console.log(alphanumeric("PassW0rd"));
