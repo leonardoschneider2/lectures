@@ -27,3 +27,12 @@
   docker container start id-ou-nome-do-container
 
   Caso não informe ao bash que quero continuar com o container em execução
+
+
+#### - Mantém o container rodando
+  docker container start -dit id-ou-nome-do-container
+
+
+#### - Remover todos os containers da Máquina
+  docker container prune
+
