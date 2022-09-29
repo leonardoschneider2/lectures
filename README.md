@@ -1,4 +1,4 @@
-## Docker 
+## Docker Imagens:
 
 #### - Comando para verificar as imagens
   docker images
@@ -13,9 +13,16 @@
 #### Criando um container a partir de uma imagem
   docker run --name NOME_DO_CONTAINER -it ubuntu
 -it ou -dit -> flag para o container ficar aberto rodando no terminal, a operação tradicional seria startar e a aplicação morrer
+
+-i interativo
+-t terminal
+-d detach (rodar em segundo plano)
   
 #### Abrindo um Container
-  docker start-ai NOME_OU_ID_DO_CONTAINER
+  docker start -ai NOME_OU_ID_DO_CONTAINER
+
+-a attach
+-i interactive
 
 #### Curiosidade: Como escrever dentro de um documento.txt no teminal do Ubuntu
 touch DOCUMENTO.txt
