@@ -1,0 +1,19 @@
+{
+  "name": "npm-or-pokemon",
+  "version": "1.0.0",
+  "description": "Aplication say for is if the code is an NPM or an POKEMON",
+  "main": "hello.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pokemon",
+    "npm"
+  ],
+  "author": "Leonardo Schneider <leocoelhlo256@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "1.4"
+  }
+}
