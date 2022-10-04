@@ -3,8 +3,9 @@ console.log('index.js');
 // rode NPM START
 
 const readline = require('readline-sync');
+const askName = require('./askName');
 
-const name = readline.question('Qual seu nome ? ');
+const name = askName();
 
 console.log(`oi ${name} !`);
 
