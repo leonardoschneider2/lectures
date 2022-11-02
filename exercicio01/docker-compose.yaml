@@ -1,0 +1,40 @@
+version: '3'
+services:
+  node:
+    image: node:16.14
+    container_name: user_books
+    tty: true
+    stdin_open: true
+    command: bash
+    restart: always
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    depends_on:
+      - db
+    ports:
+      - 3001:3001
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+      PORT: '3001'
+      HOST: user_books
+    networks:
+      # Conecta esse serviço com a rede que criada
+      - user_books_net
+  db:
+    container_name: user_books_db
+    image: mysql:8.0.23
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # Garanta que não haverá conflitos de porta com um banco que esteja
+      # rodando localmente
+      - 3307:3307
+    networks:
+      # Conecta esse serviço com a rede que criada 
+      - user_books_net
+networks:
+  user_books_net:
+    driver: bridge
